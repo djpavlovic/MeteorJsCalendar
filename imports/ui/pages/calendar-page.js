@@ -15,7 +15,7 @@ Template.Calendar_Page.onRendered(() => {
 
   // Initialize the calendar.
   $('#event-calendar').fullCalendar({
-
+    eventLimit: true, // for all non-TimeGrid views
     header: {
       left: 'title',
       center: '',
@@ -55,7 +55,8 @@ Template.Calendar_Page.onRendered(() => {
 
     // Delete an event if it is clicked on.
     eventClick(event) {
-      EventData.remove({_id: event._id});
+      console.log(event)
+      // EventData.remove({_id: event._id});
     },
 
     // Allow events to be dragged and dropped.

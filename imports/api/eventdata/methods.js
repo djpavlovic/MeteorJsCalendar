@@ -1,4 +1,4 @@
-import {EventData, EventDataSchema} from '../../api/eventdata/eventdata';
+import {EventData, EventDataSchema} from './eventdata';
 import {SimpleSchema} from 'meteor/aldeed:simple-schema';
 
 Meteor.methods({
