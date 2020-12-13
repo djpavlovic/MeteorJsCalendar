@@ -9,6 +9,34 @@ import {EventData, EventDataSchema} from '../../api/eventdata/eventdata.js';
 
 const displayErrorMessages = 'displayErrorMessages';
 
+
+const minTime = '06:00'
+const maxTime = '23:00'
+const step = 30
+
+const getRange = () => {
+//Data
+    let x = {
+        slotInterval: step,
+        openTime: minTime,
+        closeTime: maxTime
+    };
+//Format the time
+    let startTime = moment(x.openTime, "HH:mm");
+//Format the end time and the next day to it
+    let endTime = moment(x.closeTime, "HH:mm").add(x.slotInterval, 'minutes');
+//Times
+    let allTimes = [];
+//Loop over the times - only pushes time with 30 minutes interval
+    while (startTime < endTime) {
+        //Push times
+        allTimes.push(startTime.format("HH:mm"));
+        //Add interval of 30 minutes
+        startTime.add(x.slotInterval, 'minutes');
+    }
+    return allTimes
+}
+
 Template.Create_Event_Modal.onCreated(function onCreated() {
     this.messageFlags = new ReactiveDict();
     this.messageFlags.set(displayErrorMessages, false);
@@ -26,6 +54,9 @@ Template.Create_Event_Modal.helpers({
         const errorKeys = Template.instance().context.invalidKeys();
         return _.find(errorKeys, (keyObj) => keyObj.name === fieldName);
     },
+    getRange() {
+        return getRange()
+    }
 });
 
 // Enable Semantic UI.

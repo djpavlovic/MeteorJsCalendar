@@ -1,11 +1,16 @@
 import {Tracker} from 'meteor/tracker';
 import {EventData} from '../../api/eventdata/eventdata';
+import {Template} from "meteor/templating";
+import {Session} from "meteor/session";
 
 // Define a function that checks whether a moment has already passed.
 let isPast = (date) => {
     let today = moment().format();
     return moment(today).isAfter(date);
 };
+const minTime = '06:00'
+const maxTime = '23:00'
+const step = 30
 
 Template.Calendar_Page.onCreated(() => {
     Template.instance().subscribe('EventData');
@@ -15,8 +20,8 @@ Template.Calendar_Page.onRendered(() => {
     // Initialize the calendar.
     $('#event-calendar').fullCalendar({
         firstDay: 1,
-        minTime: "06:00:00",
-        maxTime: "23:00:00",
+        minTime: minTime,
+        maxTime: maxTime,
         businessHours: [ // specify an array instead
             {
                 daysOfWeek: [1, 2, 3, 4, 5], // Monday, Tuesday, Wednesday
