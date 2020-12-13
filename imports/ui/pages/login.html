@@ -1,3 +1,20 @@
 <template name="login">
-    login
+    <div class="ui {{loading}} form segment">
+        <div class="field">
+            <label>Username</label>
+            <input placeholder="Username" type="text">
+        </div>
+        <div class="field">
+            <label>Password</label>
+            <input type="password">
+        </div>
+        <div class="inline field">
+            <div class="ui checkbox">
+                <input type="checkbox">
+                <label>I agree to the terms and conditions</label>
+            </div>
+        </div>
+        <div class="ui submit button">Submit</div>
+    </div>
+
 </template>
