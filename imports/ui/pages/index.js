@@ -1,4 +1,9 @@
 import './calendar-page.html';
-import './calendar-page.js';
+import './register-page.html';
+import './login.html';
+import './lists.html';
 import './create-event-modal.html';
+import './editEventModal.html';
+import './editEventModal.js';
 import './create-event-modal.js';
+import './calendar-page.js';
