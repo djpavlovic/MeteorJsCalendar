@@ -14,6 +14,7 @@ Template.Calendar_Page.onCreated(() => {
 Template.Calendar_Page.onRendered(() => {
     // Initialize the calendar.
     $('#event-calendar').fullCalendar({
+        firstDay: 1,
         minTime: "06:00:00",
         maxTime: "23:00:00",
         businessHours: [ // specify an array instead
@@ -51,7 +52,8 @@ Template.Calendar_Page.onRendered(() => {
         },
 
         // Triggered when a day is clicked on.
-        dayClick(date, session) {
+        dayClick(date, session, third) {
+            console.log('click')
             // Store the date so it can be used when adding an event to the EventData collection.
             Session.set('eventModal', {type: 'add', date: date.format()});
             // If the date has not already passed, show the create event modal.
