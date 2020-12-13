@@ -12,13 +12,14 @@ Template.Calendar_Page.onCreated(() => {
 });
 
 Template.Calendar_Page.onRendered(() => {
-
     // Initialize the calendar.
     $('#event-calendar').fullCalendar({
+        minTime: "06:00:00",
+        maxTime: "23:00:00",
         businessHours: [ // specify an array instead
             {
                 daysOfWeek: [1, 2, 3, 4, 5], // Monday, Tuesday, Wednesday
-                startTime: '09:00',
+                startTime: '08:00',
                 endTime: '17:00'
             },
         ],
@@ -35,7 +36,6 @@ Template.Calendar_Page.onRendered(() => {
                 session.editable = !isPast(session.start);
                 return session;
             });
-
             if (data) {
                 callback(data);
             }
