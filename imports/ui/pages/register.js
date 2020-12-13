@@ -1,16 +1,14 @@
 import {Template} from 'meteor/templating';
 import {Session} from 'meteor/session';
 
-
 Template.register.helpers({
-    //add you helpers here
     loading() {
         return Session.get('loading') ? 'loading' : ''
     }
-
 });
 
 Template.register.events({
+    //$('.ui.dropdown').dropdown('get value')
     //add your events here
 });
 
@@ -19,7 +17,8 @@ Template.register.onCreated(function () {
 });
 
 Template.register.onRendered(function () {
-    //add your statement here
+    console.debug('result rendered ::::')
+    this.$('.ui.dropdown').dropdown();
 });
 
 Template.register.onDestroyed(function () {

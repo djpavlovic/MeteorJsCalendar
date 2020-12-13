@@ -1,5 +1,6 @@
 import './calendar-page.html';
 import './register-page.html';
+import './register.js';
 import './login.html';
 import './lists.html';
 import './create-event-modal.html';
